@@ -1,0 +1,941 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+
+/* ===========================================================
+   RESET
+=========================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0b0b0b;
+  color: #f7f3ef;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===========================================================
+   VARIABLES
+=========================================================== */
+
+:root {
+  --bg: #090909;
+  --bg-secondary: #111111;
+  --text: #f5f2ed;
+  --muted: rgba(245, 242, 237, 0.72);
+
+  --gold: #d8c3a5;
+  --gold-soft: rgba(216, 195, 165, 0.25);
+
+  --border: rgba(255,255,255,0.08);
+
+  --container: 1320px;
+
+  --section-padding: 8rem;
+
+  --transition: .5s cubic-bezier(.22,.61,.36,1);
+}
+
+/* ===========================================================
+   SCROLLBAR
+=========================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(216,195,165,.35);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(216,195,165,.6);
+}
+
+/* ===========================================================
+   GLOBAL
+=========================================================== */
+
+body::selection {
+  background: var(--gold);
+  color: black;
+}
+
+.app {
+  position: relative;
+  background:
+      radial-gradient(circle at top, rgba(255,255,255,.04), transparent 40%),
+      linear-gradient(#0b0b0b,#090909);
+}
+
+/* soft noise */
+
+.app::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.05;
+
+  background-image:
+  radial-gradient(circle at 20% 30%, white 1px, transparent 0),
+  radial-gradient(circle at 80% 60%, white 1px, transparent 0),
+  radial-gradient(circle at 40% 80%, white 1px, transparent 0);
+
+  background-size:170px 170px;
+}
+
+/* ===========================================================
+   TYPOGRAPHY
+=========================================================== */
+
+.display {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: .9;
+  font-weight: 500;
+  letter-spacing: -.04em;
+}
+
+.heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem,5vw,5rem);
+  line-height: .95;
+  font-weight: 500;
+}
+
+.subheading{
+  font-family:"Cormorant Garamond", serif;
+  font-size:1.4rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.35em;
+  font-size:.72rem;
+  color:var(--gold);
+}
+
+p{
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.9;
+}
+
+/* ===========================================================
+   LAYOUT
+=========================================================== */
+
+section{
+  position:relative;
+  min-height:100vh;
+  padding:var(--section-padding) 7vw;
+  display:flex;
+  align-items:center;
+}
+
+.container{
+  width:min(100%,var(--container));
+  margin:auto;
+}
+
+/* ===========================================================
+   DIVIDERS
+=========================================================== */
+
+.section-divider{
+  width:120px;
+  height:1px;
+  background:linear-gradient(
+  90deg,
+  transparent,
+  rgba(216,195,165,.8),
+  transparent);
+  margin:2rem auto;
+}
+
+/* ===========================================================
+   BUTTONS
+=========================================================== */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:15px 34px;
+
+  border:1px solid rgba(255,255,255,.15);
+
+  color:white;
+
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:.8rem;
+
+  transition:var(--transition);
+
+  cursor:pointer;
+
+  backdrop-filter:blur(10px);
+
+  background:rgba(255,255,255,.02);
+}
+
+.btn:hover{
+
+  transform:translateY(-4px);
+
+  background:rgba(255,255,255,.08);
+
+  border-color:var(--gold);
+}
+
+/* ===========================================================
+   GLASS PANEL
+=========================================================== */
+
+.glass{
+
+  background:
+  linear-gradient(
+  rgba(255,255,255,.05),
+  rgba(255,255,255,.02));
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  border-radius:28px;
+}
+
+/* ===========================================================
+   CARDS
+=========================================================== */
+
+.card{
+
+  padding:3rem;
+
+  transition:var(--transition);
+
+}
+
+.card:hover{
+
+  transform:translateY(-8px);
+
+  border-color:rgba(216,195,165,.35);
+
+}
+
+/* ===========================================================
+   IMAGE STYLES
+=========================================================== */
+
+.image-frame{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+}
+
+.image-frame img{
+
+    transition:1.4s cubic-bezier(.2,.8,.2,1);
+
+}
+
+.image-frame:hover img{
+
+  transform:scale(1.08);
+
+}
+
+.image-frame::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+  linear-gradient(
+
+  transparent,
+
+  rgba(0,0,0,.25));
+
+}
+
+/* ===========================================================
+   SECTION TITLE
+=========================================================== */
+
+.section-title{
+
+  max-width:700px;
+
+  margin-bottom:4rem;
+
+}
+
+.section-title p{
+
+  margin-top:1.2rem;
+
+}
+
+/* ===========================================================
+   FADE IN
+=========================================================== */
+
+.fade-up{
+
+  opacity:0;
+
+  transform:translateY(60px);
+
+  animation:fadeUp 1s forwards;
+
+}
+
+@keyframes fadeUp{
+
+  to{
+
+      opacity:1;
+
+      transform:translateY(0);
+
+  }
+
+}
+
+/* ===========================================================
+   FLOATING ORBS
+=========================================================== */
+
+.blur-orb{
+
+  position:absolute;
+
+  width:500px;
+
+  height:500px;
+
+  border-radius:50%;
+
+  filter:blur(120px);
+
+  opacity:.15;
+
+  pointer-events:none;
+
+}
+
+.blur-gold{
+
+  background:#d7b98d;
+
+}
+
+.blur-white{
+
+  background:white;
+
+}
+
+/* ===========================================================
+   FOOTER SPACE
+=========================================================== */
+
+footer{
+
+  padding:100px 0;
+
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:1200px){
+
+section{
+
+padding:7rem 5vw;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.display{
+
+font-size:4.5rem;
+
+}
+
+.heading{
+
+font-size:3rem;
+
+}
+
+.card{
+
+padding:2rem;
+
+}
+
+}
+
+@media(max-width:700px){
+
+section{
+
+padding:6rem 24px;
+
+min-height:auto;
+
+}
+
+.display{
+
+font-size:3.5rem;
+
+}
+
+.heading{
+
+font-size:2.3rem;
+
+}
+
+.subheading{
+
+font-size:1rem;
+
+}
+
+p{
+
+font-size:1rem;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+}
+/* ===========================================================
+   HERO
+=========================================================== */
+
+.hero{
+    height:100vh;
+    overflow:hidden;
+    justify-content:center;
+    text-align:center;
+    padding:0;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+}
+
+.hero-bg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.05);
+    animation:heroZoom 18s linear infinite alternate;
+    filter:
+        brightness(.48)
+        contrast(1.05)
+        saturate(.9);
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.65)
+        );
+
+    z-index:1;
+}
+
+.hero-content{
+    position:relative;
+    z-index:3;
+    max-width:900px;
+    padding:40px;
+}
+
+.hero-title{
+
+    display:flex;
+    flex-direction:column;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(5rem,12vw,9rem);
+
+    font-weight:500;
+
+    line-height:.9;
+
+    letter-spacing:-.05em;
+
+    margin-top:24px;
+
+    margin-bottom:24px;
+}
+
+.hero-title span{
+
+    color:var(--gold);
+
+    font-size:.45em;
+
+    margin:8px 0;
+
+}
+
+.hero-line{
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:40px auto;
+
+}
+
+.hero-copy{
+
+    font-size:1.15rem;
+
+    letter-spacing:.04em;
+
+    color:rgba(255,255,255,.82);
+
+    margin-bottom:40px;
+
+}
+
+.hero-date{
+
+    letter-spacing:.4em;
+
+    text-transform:uppercase;
+
+    font-size:.82rem;
+
+    color:var(--gold);
+
+}
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:50px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:4;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:rgba(255,255,255,.6);
+
+    font-size:.7rem;
+
+    letter-spacing:.3em;
+
+    text-transform:uppercase;
+
+}
+
+.scroll-line{
+
+    width:1px;
+
+    height:70px;
+
+    background:
+
+    linear-gradient(
+
+        var(--gold),
+
+        transparent);
+
+}
+
+.hero-orb-left{
+
+    left:-180px;
+
+    top:-120px;
+
+}
+
+.hero-orb-right{
+
+    right:-220px;
+
+    bottom:-180px;
+
+}
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1.05);
+
+    }
+
+    to{
+
+        transform:scale(1.12);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+.hero-title{
+
+font-size:4.5rem;
+
+}
+
+.hero-copy{
+
+font-size:1rem;
+
+padding:0 20px;
+
+}
+
+.scroll-indicator{
+
+bottom:30px;
+
+}
+
+}
+/* ===========================
+NAVBAR
+=========================== */
+
+.navbar{
+
+position:fixed;
+
+top:24px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:min(94%,1250px);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 34px;
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(24px);
+
+background:rgba(12,12,12,.22);
+
+border-radius:999px;
+
+z-index:999;
+
+transition:.45s;
+
+}
+
+.navbar-scrolled{
+
+background:rgba(10,10,10,.82);
+
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+}
+
+.logo{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:2rem;
+
+letter-spacing:.15em;
+
+}
+
+.logo span{
+
+color:var(--gold);
+
+margin:0 6px;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:36px;
+
+}
+
+.nav-links button{
+
+background:none;
+
+border:none;
+
+color:rgba(255,255,255,.72);
+
+cursor:pointer;
+
+letter-spacing:.2em;
+
+text-transform:uppercase;
+
+font-size:.75rem;
+
+transition:.35s;
+
+}
+
+.nav-links button:hover{
+
+color:var(--gold);
+
+}
+
+@media(max-width:900px){
+
+.nav-links{
+
+display:none;
+
+}
+
+.navbar{
+
+padding:18px 26px;
+
+}
+
+}
+/* ===========================================================
+MEHENDI
+=========================================================== */
+
+.mehendi {
+  background: linear-gradient(#0b0b0b, #111111);
+  overflow: hidden;
+}
+
+.mehendi-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.mehendi-image{
+
+    position:relative;
+
+    height:720px;
+
+    width:100%;
+
+    overflow:hidden;
+
+    border-radius:32px;
+}
+
+.mehendi-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position:center 15%;
+}
+
+
+.mehendi-content{
+
+    max-width:560px;
+
+    padding-right:20px;
+}
+.mehendi-description {
+
+  margin: 40px 0 55px;
+}
+
+.mehendi-details {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.detail {
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.detail span {
+
+  display: block;
+
+  color: var(--gold);
+
+  letter-spacing: .22em;
+
+  text-transform: uppercase;
+
+  font-size: .72rem;
+
+  margin-bottom: 10px;
+}
+
+.detail h4 {
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-weight: 500;
+
+  font-size: 2rem;
+}
+
+.mehendi-orb {
+
+  right: -180px;
+
+  top: 100px;
+}
+
+@media(max-width:1000px){
+
+.mehendi-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+}
+
+.mehendi-content{
+
+max-width:100%;
+
+}
+
+.mehendi-image{
+
+    position:relative;
+
+    aspect-ratio:3/4;
+
+    overflow:hidden;
+
+    border-radius:32px;
+}
+
+
+.mehendi-date{
+
+left:40px;
+
+bottom:40px;
+
+padding:14px 18px;
+
+}
+
+.mehendi-date span{
+    font-size:2.7rem;
+}
+
+.detail h4{
+
+font-size:1.5rem;
+
+}
+
+}
