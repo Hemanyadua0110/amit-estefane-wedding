@@ -12,27 +12,22 @@ const photos = [
 
 export default function Gallery() {
   return (
-    <section className="gallery-section" id="gallery">
-      <div className="gallery-title">
-        <p className="eyebrow">Captured Moments</p>
-        <h2 style={{ color: "red", fontSize: "100px" }}>
-  THIS IS THE NEW GALLERY
-</h2>
-      </div>
+  <section className="gallery-section" id="gallery">
 
-      <motion.div
-        className="gallery-scroll"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        {photos.map((photo, index) => (
-          <div className="gallery-card" key={index}>
-            <img src={photo} alt={`Gallery ${index + 1}`} />
-          </div>
-        ))}
-      </motion.div>
-    </section>
-  );
+    <motion.div
+      className="gallery-scroll"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      {photos.map((photo, index) => (
+        <div className="gallery-card" key={index}>
+          <img src={photo} alt={`Gallery ${index + 1}`} />
+        </div>
+      ))}
+    </motion.div>
+
+  </section>
+);
 }
