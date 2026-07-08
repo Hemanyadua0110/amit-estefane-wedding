@@ -1,54 +1,37 @@
 import { motion } from "framer-motion";
 
+const photos = [
+  "/gallery1.jpg",
+  "/gallery2.jpg",
+  "/gallery3.jpg",
+  "/gallery4.jpg",
+  "/gallery5.jpg",
+  "/gallery6.jpg",
+  "/gallery7.jpg",
+];
+
 export default function Gallery() {
   return (
-    <section className="gallery-editorial" id="gallery">
+    <section className="gallery-section" id="gallery">
+      <div className="gallery-title">
+        <p className="eyebrow">Captured Moments</p>
+        <h2 style={{ color: "red", fontSize: "100px" }}>
+  THIS IS THE NEW GALLERY
+</h2>
+      </div>
+
       <motion.div
-        className="gallery-heading"
+        className="gallery-scroll"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <p className="eyebrow">Our Story</p>
-
-        <h2>Moments We'll Always Remember</h2>
-      </motion.div>
-
-      <motion.div
-        className="gallery-hero-image image-frame"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <img src="/gallery1.jpg" alt="" />
-      </motion.div>
-
-      <div className="gallery-quote">
-        "Every photograph tells a story,
-        <br />
-        but ours tells forever."
-      </div>
-
-      <div className="gallery-grid">
-
-        <div className="image-frame">
-          <img src="/gallery2.jpg" alt="" />
-        </div>
-
-        <div className="image-frame gallery-wide">
-          <img src="/gallery3.jpg" alt="" />
-        </div>
-
-      </div>
-
-      <motion.div
-        className="gallery-final image-frame"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <img src="/gallery4.jpg" alt="" />
+        {photos.map((photo, index) => (
+          <div className="gallery-card" key={index}>
+            <img src={photo} alt={`Gallery ${index + 1}`} />
+          </div>
+        ))}
       </motion.div>
     </section>
   );

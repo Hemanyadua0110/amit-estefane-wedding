@@ -833,139 +833,89 @@ RECEPTION FINAL
 GALLERY
 =========================================*/
 
-.gallery-editorial{
-
-    padding:200px 0;
-
-    width:min(1320px,92vw);
-
-    margin:auto;
+.gallery-section{
+    padding:160px 0;
+    overflow:hidden;
 }
 
-.gallery-heading{
-
+.gallery-title{
     text-align:center;
-
-    margin-bottom:90px;
+    margin-bottom:70px;
 }
 
-.gallery-heading h2{
-
+.gallery-title h2{
     font-family:"Cormorant Garamond",serif;
-
-    font-size:clamp(4rem,7vw,6.5rem);
-
+    font-size:clamp(4rem,7vw,6rem);
     font-weight:400;
-
-    margin-top:16px;
 }
 
-.gallery-hero-image{
+.gallery-scroll{
+    display:flex;
+    gap:28px;
 
-    width:100%;
+    overflow-x:auto;
 
-    aspect-ratio:21/9;
+    padding:0 8vw 20px;
 
-    margin-bottom:120px;
+    scroll-snap-type:x mandatory;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
 }
 
-.gallery-hero-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 30%;
+.gallery-scroll::-webkit-scrollbar{
+    display:none;
 }
 
-.gallery-quote{
-
-    text-align:center;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:2.6rem;
-
-    line-height:1.6;
-
-    color:#D8C3A5;
-
-    margin:80px auto;
-
-    max-width:760px;
-}
-
-.gallery-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1.4fr;
-
-    gap:40px;
-
-    align-items:center;
-
-    margin-bottom:50px;
-}
-
-.gallery-grid .image-frame{
+.gallery-card{
+    flex:0 0 420px;
 
     aspect-ratio:4/5;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    scroll-snap-align:center;
+
+    background:#111;
+
+    transition:.35s;
 }
 
-.gallery-wide{
-
-    aspect-ratio:16/10;
+.gallery-card:hover{
+    transform:translateY(-8px);
 }
 
-.gallery-wide img{
-
+.gallery-card img{
     width:100%;
-
     height:100%;
-
     object-fit:cover;
+
+    transition:.6s;
 }
 
-.gallery-final{
-
-    width:70%;
-
-    margin:160px auto 0;
-
-    aspect-ratio:4/5;
+.gallery-card:hover img{
+    transform:scale(1.05);
 }
 
-.gallery-final img{
+@media(max-width:768px){
 
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
+.gallery-section{
+padding:120px 0;
 }
 
-@media(max-width:900px){
-
-.gallery-grid{
-
-grid-template-columns:1fr;
-
+.gallery-card{
+flex:0 0 82vw;
 }
 
-.gallery-final{
-
-width:100%;
-
-}
-
-.gallery-quote{
-
-font-size:1.6rem;
-
-padding:0 20px;
-
+.gallery-scroll{
+padding:0 24px 20px;
 }
 
 }
+
 /*=========================================
 RSVP
 =========================================*/
