@@ -1,25 +1,33 @@
+import { motion } from "framer-motion";
+
 export default function Footer() {
   return (
     <footer className="footer">
+
       <div className="footer-line"></div>
 
-      <div className="footer-content">
-        <h2>Amit & Estéfane</h2>
+      <motion.div
+        className="footer-gallery"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
 
-        <p className="footer-date">
-          January 2027 • Delhi
-        </p>
+        <div className="family-photo family-left">
+          <img src="/gallery6.jpg" alt="Indian Family" />
+        </div>
 
-        <p className="footer-small">
-          Thank you for being a part of our story.
-          <br />
-          We can't wait to celebrate with you.
-        </p>
+        <div className="family-photo family-right">
+          <img src="/gallery7.jpg" alt="Brazilian Family" />
+        </div>
 
-        <p className="footer-credit">
-          Made with ❤ for our family & friends
-        </p>
-      </div>
+      </motion.div>
+
+      <p className="footer-credit">
+        Made with ❤️ for our friends & family
+      </p>
+
     </footer>
   );
 }

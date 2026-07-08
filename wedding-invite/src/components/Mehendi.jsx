@@ -33,9 +33,9 @@ export default function Mehendi() {
           <p className="eyebrow">Wedding Festivities</p>
 
           <h2 className="heading">
-            Mehendi
+           The Mehendi
             <br />
-            Celebration
+            Festa
           </h2>
 
           <div className="section-divider" />
@@ -54,7 +54,7 @@ export default function Mehendi() {
 
             <div className="detail">
               <span>Venue</span>
-              <h4>Radisson Hotel</h4>
+              <h4>Essex Farms</h4>
             </div>
 
             <div className="detail">

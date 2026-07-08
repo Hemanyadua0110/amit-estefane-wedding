@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 
 export default function RSVP() {
+  
   return (
     <section className="rsvp" id="rsvp">
+
+    <img
+        src="/logo.png"
+        className="rsvp-watermark"
+        alt=""
+    />
       <div className="rsvp-overlay"></div>
 
       <motion.div
