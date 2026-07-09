@@ -34,9 +34,9 @@ export default function RSVP() {
         </p>
 
         <a
-          href="https://forms.google.com"
+          href="https://forms.gle/HNXW1gRa4pf72xJu6"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="rsvp-button"
         >
           Confirm Your Presence
