@@ -16,9 +16,9 @@ export default function Gallery() {
         <p className="eyebrow">CHAPTERS</p>
 
         <h2>
-          The Moments
+          Moments between
           <br />
-          That Led Us Here
+          Hello & Forever
         </h2>
       </div>
 

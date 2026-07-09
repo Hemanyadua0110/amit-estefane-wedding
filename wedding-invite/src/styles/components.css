@@ -1293,3 +1293,22 @@ SECTION DIVIDERS
         0 0 40px rgba(255,255,255,.04);
 
 }
+/* CLICKABLE VENUE LINKS */
+
+.venue-link {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.venue-link:hover {
+    opacity: 0.75;
+    transform: translateY(-2px);
+}
+
+.venue-link h4,
+.venue-link p {
+    color: inherit;
+}

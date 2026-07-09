@@ -43,15 +43,23 @@ export default function Reception() {
           </div>
 
           <div className="detail">
-            <h4>Venue</h4>
-            <p>
-              Cherish Ballrooms
-              <br />
-              Imperial Club of India
-              <br />
-              Delhi
-            </p>
-          </div>
+  <h4>Venue</h4>
+
+  <a
+    href="https://maps.app.goo.gl/M33EoHWh8XDbhyhU9?g_st=iw"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="venue-link"
+  >
+    <p>
+      The Sapphire Ballroom
+      <br />
+      Cherish Ballrooms at Imperial Club of India
+      <br />
+      Vasant Kunj, New Delhi
+    </p>
+  </a>
+</div>
 
         </div>
       </motion.div>
