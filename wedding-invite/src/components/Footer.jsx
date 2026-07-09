@@ -27,7 +27,7 @@ export default function Footer() {
       <p className="footer-credit">
         Made with ❤️ for our friends & family
       </p>
-
+<div className="evil-eye">🧿</div>
     </footer>
   );
 }

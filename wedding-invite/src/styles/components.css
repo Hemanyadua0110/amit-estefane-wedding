@@ -1312,3 +1312,9 @@ SECTION DIVIDERS
 .venue-link p {
     color: inherit;
 }
+.evil-eye {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 1;
+}

@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 
 export default function Mehendi() {
   return (
-    <section className="mehendi">
+    <section className="mehendi" id="mehendi">
+
       {/* Background Blur */}
       <div className="blur-orb blur-gold mehendi-orb" />
 
       <div className="container mehendi-grid">
-        {/* Left Image */}
 
+        {/* Left Image */}
         <motion.div
           className="mehendi-image image-frame"
           initial={{ opacity: 0, x: -80 }}
@@ -17,12 +18,9 @@ export default function Mehendi() {
           transition={{ duration: 1 }}
         >
           <img src="/mehendi.jpg" alt="Mehendi Ceremony" />
-
-          
         </motion.div>
 
         {/* Right Content */}
-
         <motion.div
           className="mehendi-content"
           initial={{ opacity: 0, x: 80 }}
@@ -33,23 +31,25 @@ export default function Mehendi() {
           <p className="eyebrow">Wedding Festivities</p>
 
           <h2 className="heading">
-           The Mehendi
+            The Mehendi
             <br />
             Festa
           </h2>
 
           <div className="section-divider" />
 
-<p className="event-description">
-  A vibrant pre-wedding celebration where intricate henna designs adorn
-  the bride’s hands and feet, surrounded by music, dancing, laughter,
-  and joyful family festivities.
-</p>
+          <p className="event-description">
+            A vibrant pre-wedding celebration where intricate henna designs
+            adorn the bride’s hands and feet, surrounded by music, dancing,
+            laughter, and joyful family festivities.
+          </p>
 
-<p className="dress-code">
-  <strong>Dress Code:</strong> Vibrant colours — bright & beautiful ✨
-</p>
+          <p className="dress-code">
+            <strong>Dress Code:</strong> Vibrant colours — bright & beautiful ✨
+          </p>
+
           <div className="mehendi-details">
+
             <div className="detail">
               <span>Time</span>
               <h4>7:00 PM onwards</h4>
@@ -57,20 +57,34 @@ export default function Mehendi() {
 
             <div className="detail">
               <span>Venue</span>
-              <h4>The Queens Hall</h4>
-              <br />
-              Essex Farms
-              <br />
-              Aurobindo Marg, New Delhi
+
+              <a
+                href="https://maps.app.goo.gl/WjG4tJ5AR29hS2Nt7?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="venue-link"
+              >
+                <h4>The Queens Hall</h4>
+
+                <p>
+                  Essex Farms
+                  <br />
+                  Aurobindo Marg, New Delhi
+                </p>
+              </a>
             </div>
 
             <div className="detail">
-  <span>Date</span>
-  <h4>20 January 2027</h4>
-</div>
+              <span>Date</span>
+              <h4>20 January 2027</h4>
+            </div>
+
           </div>
+
         </motion.div>
+
       </div>
+
     </section>
   );
 }
