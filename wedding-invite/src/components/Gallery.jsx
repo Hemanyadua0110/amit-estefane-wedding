@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 const photos = [
   "/gallery1.jpg",
   "/gallery2.jpg",
-  "/gallery3.jpg",
-  "/gallery4.jpg",
   "/gallery5.jpg",
 ];
 
